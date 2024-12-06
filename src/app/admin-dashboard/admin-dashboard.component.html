@@ -1,0 +1,38 @@
+<div class="admin-container">
+  <!-- 側邊導覽列 -->
+  <div class="sidebar">
+    <ul>
+      <li><a [routerLink]="['mainpage']" routerLinkActive="active">主頁</a></li>
+      <li><a [routerLink]="['user-manage']" routerLinkActive="active">用戶管理</a></li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['key-manage']">卡號管理</a>
+      </li>
+      <li><a [routerLink]="['order-manage']" routerLinkActive="active">訂單管理</a></li>
+      <li><a [routerLink]="['product-manage']" routerLinkActive="active">商品管理</a></li>
+      <li><a [routerLink]="['admin-manage']" routerLinkActive="active">管理員權限管理</a></li>
+      <li>
+        <a (click)="navigateToHome()" [ngClass]="{ 'hover-active': isHovered }" 
+           (mouseenter)="isHovered = true" 
+           (mouseleave)="isHovered = false">
+          前往首頁
+        </a>
+      </li>
+    </ul>
+
+     <!-- 底部的登出按鈕 -->
+ <div class="logout-section">
+  <button class="btn-logout" (click)="logout()">登出</button>
+</div>
+
+     <!-- 顯示使用者名稱 -->
+     <div class="user-greeting">
+      {{ username }} 您好！
+    </div>
+   
+  </div>
+
+  <!-- 主要內容區域 -->
+  <div class="content">
+    <router-outlet></router-outlet> <!-- 顯示對應頁面內容 -->
+  </div>
+</div>

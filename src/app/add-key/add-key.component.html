@@ -1,0 +1,50 @@
+<!-- 返回按鈕區域 -->
+<div class="back-home-icon">
+  <a href="admin/key-manage">
+    <img src="assets/photo/angle-left.png" alt="返回卡號管理">
+  </a>
+</div>
+
+<!-- 表單區域 -->
+<div class="container">
+  <h2 class="form-title">ADD KEY</h2>
+
+  <!-- 卡號類型選擇 -->
+  <div class="form-group">
+    <label for="cardType">卡號類型：</label>
+    <select id="cardType" class="form-control1">
+      <option value="times">次數卡</option>
+      <option value="day">時效卡</option>
+      <option value="unbind">解綁卡</option>
+    </select>
+  </div>
+
+  <!-- 數量輸入框 -->
+  <div class="form-group">
+    <label for="quantity">卡號數量：</label>
+    <input id="quantity" type="number" class="form-control" placeholder="輸入卡號數量..." min="0">
+  </div>
+
+
+  <!-- 卡號前輟輸入框 -->
+  <div class="form-group">
+    <label for="cardPrefix">卡號前輟：</label>
+    <input id="cardPrefix" type="text" class="form-control" placeholder="輸入卡號前輟...">
+  </div>
+
+  <!-- 卡號長度輸入框 -->
+  <div class="form-group">
+    <label for="cardSuffix">卡號長度：</label>
+    <input id="cardSuffix" type="text" class="form-control" placeholder="輸入卡號長度..." maxlength="20">
+  </div>
+
+  <!-- 給予日期與次數欄位 -->
+  <div class="form-group">
+    <label for="startDate">給予日期與次數：</label>
+    <input id="quantity" type="number" class="form-control" placeholder="輸入天數/次數(數字)..." min="0">
+  </div>
+
+  <!-- 按鈕區 -->
+  <button class="btn" (click)="generateCard()">產出卡號</button>
+
+</div>

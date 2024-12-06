@@ -1,0 +1,53 @@
+/* 主容器樣式 */
+.admin-mainpage-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* 每個區塊的樣式 */
+.chart-section, .order-section, .notification-section {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.chart-section h2, .order-section h2, .notification-section h2 {
+  font-size: 24px;
+  color: #1565C0;
+  margin-bottom: 15px;
+}
+
+/* 日期選擇區域樣式 */
+.date-picker {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.date-picker input {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* 訂單列表樣式 */
+.order-list {
+  list-style: none;
+  padding: 0;
+}
+
+.order-list li {
+  padding: 10px;
+  background-color: rgba(173, 167, 251, 0.1);
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+/* 系統通知區域樣式 */
+.notification-section p {
+  font-size: 18px;
+  color: #333;
+}

@@ -1,0 +1,58 @@
+<div class="key-manage-container">
+  <div class="header">
+    <h2>Key Management</h2>
+  </div>
+
+  <!-- 搜尋和篩選區 -->
+   <input
+     type="text"
+     class="search-bar"
+     placeholder="Search by Key,Creator,or Reseller..."
+     [(ngModel)]="searchTerm"
+     (input)="searchKeys()"
+     />
+    
+
+  <table class="key-table">
+    <thead>
+      <tr>
+        <th>順序</th>
+        <th>卡號</th>
+        <th>剩餘次數/剩餘天數</th>
+        <th>是否已使用</th>
+        <th>卡號種類</th>
+        <th>是否鎖定</th>
+        <th>創建者</th>
+        <th>銷售員</th>
+        <th>售價</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let key of filteredKeys | paginate: { itemsPerPage: itemPerPage, currentPage: p }; let i = index">
+        <td>{{ i + 1 + (p - 1) * itemPerPage }}</td> <!-- 順序 -->
+        <td>{{ key.keyValue }}</td>
+        <td>{{ key.times }}</td>
+        <td>{{ key.used === 0 ? '否' : '是' }}</td>
+        <td [ngClass]="{ 'unknown-type': getCardType(key.type) === '未知類型' }">
+          {{ getCardType(key.type) }}
+        </td>                                        
+        <td>{{ key.locked === '1' ? '是' : '否' }}</td>
+        <td>{{ key.creator}}</td>
+        <td>{{ key.reseller}}</td>
+        <td>{{ key.price}}</td>
+        <td>
+          <button class="btn-lock" (click)="lockKey(key)" [disabled]="key.locked === '1'">鎖定卡號</button>
+          <button class="btn-unlock" (click)="unlockKey(key)" [disabled]="key.locked === '0'">解除鎖定</button>
+          <button class="btn-delete" (click)="deleteKey(key.id)">刪除</button> <!-- 刪除按鈕 -->
+        </td>
+        
+        
+      </tr>
+    </tbody>
+  </table>
+  
+    <!-- 分頁區 -->
+    <pagination-controls (pageChange)="onPageChange($event)" ></pagination-controls>
+    <!-- 透過 pagination-controls 元件處理分頁 -->
+</div>

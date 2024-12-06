@@ -1,0 +1,56 @@
+<div class="order-manage-container">
+  <!-- 頁面標題和新增訂單按鈕 -->
+  <div class="header">
+    <h2>Order Management</h2>
+  </div>
+
+  <!-- 搜尋和篩選區 -->
+  <div class="search-filter">
+    <input type="text" class="search-bar" placeholder="Search Order...">
+    <select class="date-filter">
+      <option value="all">所有日期</option>
+      <option value="today">今天</option>
+      <option value="last-week">過去一週</option>
+      <option value="last-month">過去一個月</option>
+    </select>
+    <select class="status-filter">
+      <option value="all">所有狀態</option>
+      <option value="pending">待處理</option>
+      <option value="shipped">完成訂單</option>
+    </select>
+    <button class="btn-search">Search</button>
+  </div>
+
+  <!-- 訂單列表表格 -->
+  <table class="order-table">
+    <thead>
+      <tr>
+        <th>訂單編號</th>
+        <th>使用者名稱</th>
+        <th>商品名稱</th>
+        <th>商品規格</th>
+        <th>數量</th>
+        <th>總價</th>
+        <th>日期</th>
+        <th>狀態</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>rosemarry123</td>
+        <td>LOLM：激鬥峽谷</td>
+        <td>永久卡</td>
+        <td>1</td>
+        <td>$3500</td>
+        <td>2023-09-15</td>
+        <td>完成訂單</td>
+        <td>
+          <button class="btn-edit">編輯</button>
+          <button class="btn-delete">刪除</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

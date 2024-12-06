@@ -1,0 +1,49 @@
+<div class="back-home-icon">
+  <a href="login">
+    <img src="assets/photo/angle-left.png" alt="Back to Home">
+  </a>
+</div>
+
+<div class="register-container">
+  <div class="register-main">
+    <h2>Register to KeyService</h2>
+
+
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          (keyup)="checkPasswordMatch()"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input
+          type="password"
+          id="confirm-password"
+          name="confirm-password"
+          [(ngModel)]="confirmPassword"
+          (keyup)="checkPasswordMatch()"
+          required
+        >
+      </div>
+
+      <div class="form-actions">
+        <div class="form-action">
+          <button type="submit" class="btn">Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

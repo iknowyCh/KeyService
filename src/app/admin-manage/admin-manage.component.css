@@ -1,0 +1,132 @@
+/*整體容器樣式*/
+.admin-manage-container{
+  max-width: 1500px;
+  margin: 0 auto;
+  margin-top: 23px;
+  margin-bottom: 5px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/*頁面標題和新增按鈕*/
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+h2{
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/*搜尋和篩選器*/
+.search-filter{
+  display: flex;
+  align-items: center; /* 垂直置中 */
+  justify-content: flex-start; /* 左對齊 */
+  gap: 10px; /* 控制元素之間的間距 */
+  margin-bottom: 20px;
+}
+
+.search-bar{
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 300px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.status-filter{
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* 調整新增按鈕的樣式 */
+.btn-add-user {
+  padding: 10px 30px;
+  margin-right: 80px;
+  position: relative;
+  top: 50px; /* 向下移動 20px */
+  background-color: rgba(31,67,155);
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-add-user:hover {
+  background-color: rgb(60, 92, 173);
+  color: white;
+}
+
+/*表格樣式*/
+.admin-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  }
+
+.admin-table th,
+.admin-table td{
+  padding: 10px 15px;
+  text-align: center;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.admin-table th{
+  background-color: rgb(24, 157, 214);
+  color: white;
+  font-size: 18px;
+}
+
+.admin-table tr:nth-child(even){
+  background-color: #f2f2f2;
+}
+
+/*按鈕樣式*/
+button{
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+/*編輯按鈕*/
+.btn-edit{
+  background-color: rgb(65, 92, 164);
+  color: white;
+  padding: 10px 18px;
+  font-size: 16px;
+}
+
+.btn-edit:hover{
+  background-color: rgb(88, 113, 184);
+}
+
+.text-red {
+  color: red;
+  font-weight: bold;
+}
+
+/*刪除按鈕*/
+.btn-delete{
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px 18px;
+}
+
+.btn-delete:hover{
+  background-color: #c0392b;
+}
+

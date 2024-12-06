@@ -1,0 +1,53 @@
+<!--返回按鈕區域-->
+<div class="back-home-icon">
+  <a href="admin/product-manage">
+    <img src="assets/photo/angle-left.png" alt="返回商品管理">
+  </a>
+</div>
+
+<!--表單區域-->
+<div class="container">
+  <h2 class="form-title">ADD PRODUCT</h2>
+
+  <!--商品名稱-->
+  <div class="form-group">
+    <label for="productName">商品名稱：</label>
+    <input id="productName" type="text" class="form-control" placeholder="輸入商品名稱...">
+  </div>
+
+  <!--商品分類-->
+  <div class="form-group">
+    <label for="productCategory">商品分類：</label>
+    <select id="productCategory" class="form-control1">
+      <option value="mobile">手機遊戲</option>
+      <option value="computer">電腦遊戲</option>
+    </select>
+  </div>
+
+  <!--商品規格-->
+  <div class="form-group">
+    <label for="productSpecs">商品規格：</label>
+    <select id="productCategory" class="form-control1">
+      <option value="daycard">天卡</option>
+      <option value="weekcard">周卡</option>
+      <option value="monthcard">月卡</option>
+      <option value="3monthescard">季卡</option>
+      <option value="lifecard">永久卡</option>
+    </select>
+  </div>
+
+  <!--商品價格-->
+  <div class="form-group">
+    <label for="productPrice">商品價格：</label>
+    <input id="productPrice" type="number" class="form-control" placeholder="輸入商品價格..." min="0">
+  </div>
+
+  <!--商品庫存-->
+  <div class="form-group">
+    <label for="productStock">商品庫存：</label>
+    <input id="productStock" type="number" class="form-control" placeholder="輸入商品庫存..." min="0">
+  </div>
+
+  <!--按鈕區域-->
+  <button class="btn" (click)="addProduct()">加入商品</button>
+</div>

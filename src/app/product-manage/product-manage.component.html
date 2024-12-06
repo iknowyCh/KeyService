@@ -1,0 +1,55 @@
+<div class="product-manage-container">
+  <!-- 頁面標題和新增商品按鈕 -->
+  <div class="header">
+    <h2>Product Management</h2>
+    <a [routerLink]="['/admin/add-product']">
+    <button class="btn-add-product">Add</button>
+    </a>
+</div>
+
+  <!-- 搜尋和篩選區 -->
+  <div class="search-filter">
+    <input type="text" class="search-bar" placeholder="Search Product...">
+    <select class="category-filter">
+      <option value="all">所有分類</option>
+      <option value="Computer">Computer Game</option>
+      <option value="Mobile">Mobile Game</option>
+    </select>
+    <select class="status-filter">
+      <option value="active">已上架</option>
+      <option value="inactive">已下架</option>
+    </select>
+    <button class="btn-search">Search</button>
+  </div>
+
+  <!-- 商品列表表格 -->
+  <table class="product-table">
+    <thead>
+      <tr>
+        <th>編號</th>
+        <th>名稱</th>
+        <th>分類</th>
+        <th>規格</th>
+        <th>價格</th>
+        <th>庫存</th>
+        <th>狀態</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>LOLM：激鬥峽谷</td>
+        <td>Mobile Game</td>
+        <td>永久</td>
+        <td>3500</td>
+        <td>100</td>
+        <td>已上架</td>
+        <td>
+          <button class="btn-edit">編輯</button>
+          <button class="btn-delete">刪除</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

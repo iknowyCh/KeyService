@@ -1,0 +1,288 @@
+html, body {
+  margin: 0; /* 去除預設的外邊距，確保背景能夠完全填滿視窗 */
+  padding: 0; /* 去除預設的內邊距，確保背景能夠完全填滿視窗 */
+  width: 100%; /* 設定 html 和 body 的寬度為 100% */
+  height: 100%; /* 設定 html 和 body 的高度為 100% */
+  background-color: #121212; /* 設定整個頁面的背景顏色，深色 */
+}
+
+.home-container {
+  background-color: rgba(31,30,46); /* 設定主內容區域的背景顏色 */
+  color: #E0E0E0; /* 設定主內容區域的文字顏色 */
+  border-radius: 30px; /* 設定主內容區域的圓角半徑 */
+  text-align: center; /* 設定內容居中對齊 */
+  padding: 20px; /* 增加主內容區域的內邊距，讓內容與邊緣保持距離 */
+  margin: 15px; /* 增加主內容區域的外邊距，讓容器與視窗邊緣保持距離 */
+  min-height: 97vh; /* 設定主內容區域的最小高度，確保填滿大部分視窗 */
+  display: flex; /* 使用彈性盒模型來排列內容 */
+  flex-direction: column; /* 設定內容從上到下排列 */
+  justify-content: space-between; /* 將內容均勻分布在容器內，並在上方和下方保留空間 */
+}
+
+/* 控制首頁頂部的英雄區域（大標題和介紹文字的區域） */
+.hero-section {
+  font-family: 'Orbitron', sans-serif; /* 特別的中文字體 */
+  background: linear-gradient(135deg, rgba(109,172,239), rgba(118,147,243), rgba(138,90,254), rgba(128,117,249)); /* 設定漸變背景 */
+  padding: 170px 20px; /* 設定內邊距 */
+  border-radius: 20px; /* 設定圓角半徑 */
+  margin-bottom: 20px; /* 設定底部外邊距 */
+  animation: fadeIn 1.5s ease-in-out; /* 設定淡入動畫 */
+}
+
+/* 控制英雄區域中的主標題 */
+.hero-section h1 {
+  font-size: 3rem; /* 設定主標題的字體大小 */
+  margin-bottom: 20px; /* 設定主標題的底部外邊距 */
+  animation: fadeIn 1.5s ease-in-out; /* 設定淡入動畫 */
+}
+
+/* 控制主內容中的功能區域（包含各個功能塊） */
+.features-section {
+  background-color: rgba(45,44,60); /* 設定功能區域的背景顏色 */
+  border-radius: 20px; /* 設定圓角半徑 */
+  display: flex; /* 使用彈性盒模型來排列功能塊 */
+  justify-content: space-around; /* 將功能塊均勻分布在可用空間內 */
+  gap: 30px; /* 設定功能塊之間的間距 */
+  padding: 79px; /* 設定功能區域的內邊距 */
+  margin-top: -20px; /* 設定功能區域的頂部外邊距 */
+  animation: fadeIn 2s ease-in-out; /* 設定淡入動畫 */
+}
+
+/* 控制每個功能塊的樣式 */
+.feature-item {
+  background-color: #2C2C2C; /* 設定功能塊的背景顏色 */
+  padding: 50px; /* 設定功能塊的內邊距 */
+  border-radius: 20px; /* 設定功能塊的圓角半徑 */
+  width: 300px; /* 設定每個功能塊的寬度，四個卡片一橫排 */
+  height: 50px;
+  text-align: center; /* 設定內容居中對齊 */
+  display: flex; /* 讓內容在功能塊內垂直排列 */
+  flex-direction: column; /* 內容從上到下排列 */
+  justify-content: space-between; /* 上下均衡分布內容 */
+  height: 200px; /* 設定統一的卡片高度 */
+  animation: fadeIn 2s ease-in-out; /* 設定淡入動畫 */
+}
+
+/* 控制功能塊中的標題 */
+.feature-item h3 {
+  font-size: 1.7rem; /* 設定功能塊標題的字體大小 */
+  margin-bottom: 10px; /* 設定功能塊標題的底部外邊距 */
+}
+
+/* 控制功能塊中的描述文字 */
+.feature-item p {
+  font-size: 1.3rem; /* 設定描述文字的字體大小 */
+  margin-bottom: 20px; /* 設定描述文字的底部外邊距 */
+  color: #B0BEC5; /* 設定描述文字的顏色 */
+  flex-grow: 1; /* 讓描述文字佔據剩餘空間 */
+  display: flex; /* 使用彈性盒模型來排列內容 */
+  align-items: center; /* 垂直居中對齊內容 */
+  justify-content: center; /* 水平居中對齊內容 */
+}
+
+/* 控制功能塊中的按鈕 */
+.feature-item .btn {
+  background-color: #1E88E5; /* 設定按鈕的背景顏色 */
+  padding: 10px 20px; /* 設定按鈕的內邊距 */
+  color: #FFFFFF; /* 設定按鈕文字的顏色 */
+  border-radius: 8px; /* 設定按鈕的圓角半徑 */
+  text-decoration: none; /* 移除按鈕的文字下劃線 */
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; /* 設定背景顏色、變形和陰影的過渡效果 */
+  margin-top: auto; /* 讓按鈕移動到最底部 */
+  align-self: center; /* 確保按鈕在水平居中 */
+  font-size: 18px; /* 設定按鈕內文字的大小 */
+  border: 2px solid transparent; /* 設定按鈕的邊框，默認為透明 */
+  background-image: linear-gradient(#1E88E5, #1E88E5), linear-gradient(135deg, #00f, #0ff); /* 設定漸變邊框 */
+  background-origin: border-box; /* 設定背景填充區域為邊框 */
+  background-clip: padding-box, border-box; /* 設定背景剪裁區域 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 添加陰影效果 */
+}
+
+/* 控制按鈕懸停時的樣式 */
+.feature-item .btn:hover {
+  background-color: #1565C0; /* 設定按鈕懸停時的背景顏色 */
+  transform: translateY(-3px); /* 按鈕懸浮效果 */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* 提升懸停時的陰影效果 */
+  cursor: pointer; /* 懸停時變為指針形狀 */
+}
+
+
+/* 背景遮罩 */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.171);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* 保證覆蓋頁面其他內容 */
+}
+
+/* 模態框標題 */
+.modal-title {
+  font-size: 30px; /* 調整標題文字大小 */
+  text-align: left; /* 將標題文字置中 */
+  color: #1E88E5; /* 調整標題文字顏色 */
+  font-weight: bold; /* 調整標題字體粗細 */
+}
+
+
+/* 模態框內容 */
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 200px;
+  width: 120%; /* 設定模態框的寬度，例如 60% */
+  max-width: 700px; /* 設定模態框的最大寬度，例如 700px */
+  min-width: 300px; /* 設定模態框的最小寬度，例如 300px */
+  text-align: left;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* 關閉按鈕樣式 */
+.close-btn {
+  color: #121212;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* 設置圖示的位置和大小，並固定在右下角 */
+.icon-container {
+  position: fixed;
+  bottom: 80px;
+  right: 50px; /* 調整為右下角 */
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 2.2s ease-in-out; /* 設定淡入動畫 */
+}
+
+.admin-icon {
+  width: 65px; /* 圖示大小 */
+  height: 65px;
+}
+
+/* 隱藏的菜單 */
+.menu {
+  display: none; /* 默認隱藏 */
+  flex-direction: column; /* 垂直排列 */
+  margin-right: 10px;
+}
+
+/* 菜單項目樣式 */
+.menu a {
+  background-color: rgba(138,90,254); /* 設定背景顏色 */
+  color: white; /* 設定字體顏色 */
+  padding: 10px 10px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 20px;
+  margin-bottom: 5px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  background-color: rgba(173,167,251); /* 懸停時的背景顏色 */
+  color: black;
+}
+
+/* 滑鼠懸停時顯示菜單 */
+.icon-container:hover .menu {
+  display: flex;
+}
+
+/* 控制頁腳的樣式 */
+footer {
+  background-color: rgba(45,44,60); /* 設定頁腳的背景顏色 */
+  border-radius: 20px; /* 設定頁腳的圓角半徑 */
+  margin-top: 15px; /* 設定頁腳的頂部外邊距 */
+  animation: fadeIn 2s ease-in-out; /* 設定淡入動畫 */
+  font-weight: bold;
+}
+
+/* 控制頁腳中的文字樣式 */
+footer p {
+  font-size: 1.2rem; /* 設定頁腳文字的字體大小 */
+  margin-top: 18px;
+  color: #96a2a8; /* 設定頁腳文字的顏色 */
+}
+
+/* 定義 fadeIn 動畫 */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* 動畫開始時完全透明 */
+    transform: translateY(20px); /* 動畫開始時向下移動 20px */
+  }
+  100% {
+    opacity: 1; /* 動畫結束時完全顯示 */
+    transform: translateY(0); /* 動畫結束時回到原來的位置 */
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  /* 更小的電腦螢幕樣式 */
+}
+
+@media only screen and (max-width: 992px) {
+  /* 平板樣式 */
+}
+
+@media only screen and (max-width: 768px) {
+  /* 手機樣式 */
+  .feature-item {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .modal-content {
+    width: 95%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  /* 小型手機樣式 */
+  .hero-section h1 {
+    font-size: 1.2rem;
+  }
+}
+
+/* 響應式樣式：當螢幕寬度小於 768px 時 */
+@media only screen and (max-width: 768px) {
+  .features-section {
+    flex-direction: column; /* 垂直排列卡片 */
+    padding: 20px; /* 調整內邊距 */
+  }
+
+  .feature-item {
+    width: 100%; /* 讓卡片填滿容器 */
+  }
+}
+
+/* 響應式樣式：當螢幕寬度小於 576px 時 */
+@media only screen and (max-width: 576px) {
+  .feature-item {
+    flex: 1 1 100%; /* 讓卡片在小螢幕時寬度 100% */
+  }
+
+  .feature-item h3 {
+    font-size: 1.5rem; /* 減小卡片標題字體大小 */
+  }
+
+  .feature-item .btn {
+    font-size: 14px; /* 調整按鈕字體大小 */
+    padding: 8px 16px; /* 調整按鈕內邊距 */
+  }
+}

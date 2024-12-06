@@ -1,0 +1,127 @@
+/*圖標樣式*/
+.back-home-icon{
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.back-home-icon img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(190,210,226);
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease
+}
+
+.back-home-icon img:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* 回到首頁提示 */
+.back-home-icon a::after {
+  content: "Back to Login"; /* 顯示提示文字 */
+  position: absolute;
+  top: 0px; /* 調整提示文字的位置 */
+  left: 60px; /* 調整提示文字與圖示的距離 */
+  background-color: #121212;
+  color: #ffffff;
+  padding: 10px 15px; /* 增加內邊距 */
+  border-radius: 5px;
+  font-size: 16px; /* 調整文字大小 */
+  width: auto; /* 讓提示框自適應寬度 */
+  white-space: nowrap; /* 確保文字不換行 */
+  text-align: center; /* 讓文字居中 */
+  display: none; /* 默認隱藏 */
+}
+
+.back-home-icon:hover a::after {
+  display: block; /* 滑鼠懸停時顯示提示文字 */
+}
+
+/*忘記密碼頁面容器樣式*/
+.forgot-password-container{
+  background-color: rgba(31,30,46);
+  color: #E0E0E0;
+  border-radius: 30px;
+  text-align: center;
+  padding: 20px;
+  margin: 15px;
+  min-height: 97vh; /*高度填滿頁面*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /*垂直居中*/
+  align-items: center;
+}
+
+/*忘記密碼主要內容區域樣式*/
+.forgot-password-main{
+  width: 50%;
+  background-color: rgba(45, 44, 60);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/*標題樣式*/
+.forgot-password-main h2{
+  font-size: 2.4rem;
+  margin-bottom: 50px;
+  color: #43A047;
+}
+
+/*標籤樣式*/
+.forgot-password-main label{
+  display: block;
+  text-align: left;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #E0E0E0;
+}
+
+/*輸入框樣式*/
+.forgot-password-main input{
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  border: none;
+  background-color: #4d4c4c;
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: inset 2px 5px rgba(0,0,0,0.2);
+}
+
+.form-action{
+  display: flex;
+  justify-content: center; /*讓按鈕置中*/
+}
+
+/*按鈕樣式*/
+.forgot-password-main .btn{
+  background-color: #1E88E5;
+  padding: 10px 20px;
+  color: #FFFFFF;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  font-size: 18px;
+  border: 2px solid transparent;
+  background-image: linear-gradient(#1E88E5,#1e88E5), linear-gradient(135deg, #00f, #0ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  cursor: pointer;
+  width: 40%;
+}
+
+/*按紐懸停效果*/
+.forgot-password-main .btn:hover{
+  background-color: #1565C0;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+

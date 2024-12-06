@@ -1,0 +1,73 @@
+<div class="user-manage-container">
+  <!-- 主要內容區域 -->
+  <div class="header">
+    <h2>User Management</h2>
+    <a [routerLink]="['/admin/add-user']">
+      <button class="btn-add-user">Add</button>
+    </a>
+  </div>
+
+  <!-- 搜尋和篩選區 -->
+  <div class="search-filter">
+    <input type="text" class="search-bar" placeholder="Search User..." [(ngModel)]="searchTerm" (input)="searchUsers()" />
+    <select class="status-filter" [(ngModel)]="statusFilter" (change)="searchUsers()">
+      <option value="all">所有狀態</option>
+      <option value="active">未鎖定</option>
+      <option value="inactive">已鎖定</option>
+      <option value="fix">維護中</option>
+    </select>
+  </div>
+
+  <!-- 顯示無資料提示 -->
+  <div *ngIf="noData">
+    <p>找不到對應的用戶資料。</p>
+  </div>
+
+  <!-- 用戶列表表格 -->
+  <div *ngIf="!noData">
+    <table class="user-table">
+      <thead>
+        <tr>
+          <th>順序</th>
+          <th>使用者名稱</th>
+          <th>密碼</th>
+          <th>狀態</th>
+          <th>創建者</th>
+          <th>到期時間/ 剩餘次數</th>
+          <th>方案</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of filteredUsers | paginate: { itemsPerPage: itemPerPage, currentPage: p }; let i = index">
+          <td>{{ i + 1 + (p - 1) * itemPerPage }}</td> <!-- 順序 -->
+          <td>{{ user.username }}</td> <!-- 使用者名稱 -->
+          <td>{{ user.password }}</td>
+          <td [ngClass]="{
+            'text-red': user.locked === 1,
+          }">
+            {{ user.locked === 0 ? '未鎖定' : user.locked === 1 ? '已鎖定' : '維護' }}</td> <!-- 根據 locked 狀態顯示不同的文字 -->          
+          <td>{{ user.creator }}</td> <!-- 創建者 -->
+
+          <td>
+            <!-- 根據 plan 決定顯示內容 -->
+            <ng-container *ngIf="user.plan === 1">
+              剩餘次數: {{ user.times || 0 }} 次
+            </ng-container>
+            <ng-container *ngIf="user.plan === 2">
+              到期日期: {{ user.date || '無' }}
+            </ng-container>
+          </td>                              
+          <td>{{ user.plan === 1 ? '次數用戶' : '時效用戶' }}</td> <!-- 根據 plan 顯示不同的方案 -->
+          <td>
+            <button class="btn-edit" (click)="editUser(user.username)">編輯</button>
+            <button class="btn-delete" (click)="deleteUser(user.username)">刪除</button>
+          </td>
+        </tr>          
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 分頁區 -->
+  <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+ <!-- 透過 pagination-controls 元件處理分頁 -->

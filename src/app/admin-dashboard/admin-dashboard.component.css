@@ -1,0 +1,155 @@
+/*整個管理頁面主容器*/
+.admin-container{
+  display: flex; /*使用flex將側邊欄和主要內容區域橫向排列*/
+  min-height: 100vh; /*設置最小高度，讓頁面占滿整個視窗*/
+  background-color: rgba(25, 5, 73, 0.2); /*淡紫色背景*/
+}
+
+/*側邊欄設置*/
+.sidebar{
+  width: 250px; /*側邊欄寬度*/
+  background-color: rgb(31, 67, 155); /*使用紫色作為側邊欄背景色*/
+  color: white;
+  padding: 25px;
+  display: flex;
+  flex-direction: column; /*垂直排列導覽項目*/
+  justify-content: space-between; /*把登出按鈕和導覽項目分開*/
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /*陰影效果*/
+  cursor: pointer;       /* 當滑鼠移到此區塊時，鼠標變成手型 */
+}
+
+/*側邊欄中的ul(導覽連結列表)*/
+.sidebar ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*側邊欄中的li(每個導覽連結)*/
+.sidebar ul li{
+  margin-bottom: 20px;
+}
+
+/*側邊欄中的a(導覽連結樣式)*/
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 23px;
+  font-weight: bold;
+  padding: 5px;
+  border-radius: 10px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+/*側邊欄的hover效果*/
+.sidebar ul li a:hover{
+  background-color: rgba(67, 140, 213, 0.8); /*突顯選中項目*/
+  color: white;
+}
+
+/* 當導航按鈕被點擊並處於當前頁面時的樣式 */
+.sidebar ul li a.active {
+  background-color: rgba(67, 140, 213, 0.8); /* 保持和 hover 一樣的背景色 */
+  color: white;
+}
+
+/*主要內容區域*/
+.content{
+  flex-grow: 1; /*主要內容自適應大小*/
+  padding: 4px;
+  background-color: rgba(158, 195, 224);
+  color: #333;
+}
+
+/* 設定使用者名稱區塊的樣式 */
+.user-greeting {
+  font-size: 18px;       /* 設定字體大小 */
+  font-weight: bold;     /* 設定字體加粗 */
+  color: #ffffff;        /* 設定字體顏色為白色 */
+  background-color: #3366cc; /* 設定背景色為深藍色 */
+  padding: 10px;         /* 設定內邊距 */
+  margin-top: 180px;   /* 設定與登出按鈕的距離 */
+  border-radius: 5px;    /* 設定圓角邊框 */
+  text-align: center;    /* 文字置中 */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3); /* 添加陰影效果 */
+}
+
+
+/*登出按鈕區域*/
+.logout-section{
+  margin-top: auto; /*把登出按鈕推到側邊欄底部*/
+  padding-top: 20px;
+}
+
+/*登出按鈕*/
+.btn-logout{
+  background-color: #ff1900e9;
+  color: white;
+  font-weight: bold;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 10px;
+  margin-top: -100px;
+  margin-bottom: 160px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/*登出按鈕hover效果*/
+.btn-logout:hover{
+  background-color: #e13320;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+/*主要內容區標題設置*/
+.content h1{
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1565C0;
+}
+
+/*表格或卡片樣式*/
+.content .card{
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/*卡片中的文字標題*/
+.content .card h2{
+  color: rgba(138,90,254);
+}
+
+/*卡片中的內容區*/
+.content .card p{
+  font-size: 16px;
+  color: #333;
+}
+
+/*表格樣式*/
+.content table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.content table th,
+.content table td{
+  padding: 12px 15px;
+  text-align: left;
+  border-radius: 1px solid #ddd;
+}
+
+.content table th{
+  background-color: rgba(138,90,254,0.8);
+}
+
+.content table tr:hover{
+  background-color: rgba(173,167,251,0.2);
+}

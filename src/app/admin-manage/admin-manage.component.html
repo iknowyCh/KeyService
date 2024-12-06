@@ -1,0 +1,62 @@
+<div class="admin-manage-container">
+  <div class="header">
+    <h2>Admin Management</h2>
+    <a [routerLink]="['/admin/add-admin']">
+      <button class="btn-add-user">Add</button>
+    </a>
+  </div>
+
+  <!-- 搜尋區 -->
+  <input 
+    type="text" 
+    class="search-bar"
+    placeholder="Search by Admin..." 
+    [(ngModel)]="searchTerm" 
+    (input)="searchAdmins()"
+  />
+
+  <table class="admin-table">
+    <thead>
+      <tr>
+        <th>順序</th>
+        <th>使用者名稱</th>
+        <th>密碼</th>
+        <th>權限</th>
+        <th>是否啟用</th>
+        <th>所屬人員</th>
+        <th>餘額</th>
+        <th>提卡方式</th>
+        <th>天卡售價</th>
+        <th>週卡售價</th>
+        <th>月卡售價</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let admin of filteredAdmins | paginate: { itemsPerPage: itemPerPage, currentPage: p }; let i = index">
+        <td>{{ i + 1 + (p - 1) * itemPerPage }}</td>
+        <td>{{ admin.username }}</td>
+        <td>{{ admin.password }}</td>
+        <td [ngClass]="{
+           'text-red': admin.role !== 0 && admin.role !== 1 && admin.role !== 2
+        }">
+          {{ admin.role === 0 ? '工程師' : admin.role === 1 ? '商家' : admin.role === 2 ?'代理商' : '無對應權限' }}</td>
+        <td [ngClass]="{ 'enabled': admin.locked === 0, 'disabled': admin.locked === 1 }">
+          {{ admin.locked === 0 ? '是' : '否' }}
+        </td>
+        <td>{{ admin.creator }}</td>
+        <td>{{ admin.coins }}</td>
+        <td>{{ admin.sell }}</td>
+        <td>{{ admin.days }}</td>
+        <td>{{ admin.weeks }}</td>
+        <td>{{ admin.months }}</td>
+        <td>
+          <button class="btn-edit" (click)="editAdmin(admin)">編輯</button>
+          <button class="btn-delete" (click)="deleteAdmin(admin.id)">刪除</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls (pageChange)="onPageChange($event)"></pagination-controls>
+</div>

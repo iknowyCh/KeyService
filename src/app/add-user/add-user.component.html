@@ -1,0 +1,97 @@
+<!-- 返回按鈕區域 -->
+<div class="back-home-icon">
+  <a href="/admin/user-manage">
+    <img src="assets/photo/angle-left.png" alt="返回會員管理">
+  </a>
+</div>
+
+<!-- 表單區域 -->
+<div class="container">
+  <h2 class="form-title">ADD USER</h2>
+
+  <form #userForm="ngForm" (ngSubmit)="submitMember(userForm)">
+    <!-- 使用者名稱輸入框 -->
+    <div class="form-group">
+      <label for="username">使用者名稱：</label>
+      <input 
+        id="username" 
+        type="text" 
+        class="form-control" 
+        placeholder="輸入使用者名稱..." 
+        [(ngModel)]="username" 
+        name="username" 
+        required>
+      <div *ngIf="userForm.submitted && userForm.controls['username']?.errors?.['required']" class="error">
+        使用者名稱為必填欄位
+      </div>
+    </div>
+
+    <!-- 密碼輸入框 -->
+    <div class="form-group">
+      <label for="password">密碼：</label>
+      <input 
+        id="password" 
+        type="password" 
+        class="form-control" 
+        placeholder="輸入密碼..." 
+        [(ngModel)]="password" 
+        name="password" 
+        required>
+      <div *ngIf="userForm.submitted && userForm.controls['password']?.errors?.['required']" class="error">
+        密碼為必填欄位
+      </div>
+    </div>
+
+    <!-- 方案選擇 -->
+    <div class="form-group">
+      <label for="plan">方案選擇：</label>
+      <select 
+        id="plan" 
+        class="form-control1" 
+        [(ngModel)]="plan" 
+        name="plan" 
+        (change)="onPlanChange($event)" 
+        required>
+        <option value="1">次數用戶</option>
+        <option value="2">時效用戶</option>
+      </select>
+    </div>
+
+    <!-- 給予次數 -->
+    <div class="form-group" *ngIf="plan === '1'">
+      <label for="times">給予的次數：</label>
+      <input 
+        id="times" 
+        type="number" 
+        class="form-control" 
+        [(ngModel)]="Times" 
+        name="times" 
+        min="1" 
+        (input)="onTimesInput($event)" 
+        required>
+      <div *ngIf="!isValidTimes()" class="error-text" style="color: red;">
+        請輸入有效的非負整數
+      </div>
+    </div>
+
+    <!-- 給予時效 -->
+    <div class="form-group" *ngIf="plan === '2'">
+      <label for="duration">給予的時效(天)：</label>
+      <input 
+        id="duration" 
+        type="number" 
+        class="form-control" 
+        [(ngModel)]="duration" 
+        name="duration" 
+        min="1" 
+        (input)="onDateInput($event)" 
+        required>
+        <div *ngIf="!isValidTimes()" class="error-text" style="color: red;">
+          請輸入有效的非負整數
+        </div>
+    </div>
+
+    <!-- 按鈕區 -->
+    <button class="btn" type="submit">加入會員</button>
+  </form>
+</div>

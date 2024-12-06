@@ -1,0 +1,123 @@
+.container{
+  background-color: rgba(255, 255, 255, 0.764);
+  padding: 60px;
+  width: 800px;
+  margin-top: 30px;
+  border-radius: 20px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.form-title{
+  font-size: 40px;
+  margin-bottom: 35px;
+}
+
+label {
+  font-size: 20px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.form-control{
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 20px;
+  border: 2px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.764);
+}
+
+.form-control1{
+  padding: 10px;
+  width: 130px;
+  border-radius: 20px;
+  border: 2px solid #ddd;
+  background-color: rgba(255, 255, 255, 0.764);
+}
+
+/* 隱藏錯誤提示框 */
+.error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  display: none;
+  margin-top: 5px;
+}
+
+.error-message::before{
+  content: "⚠️ ";
+}
+
+.show-error {
+  display: block;
+}
+
+/*圖標樣式*/
+.back-home-icon{
+  position: absolute;
+  top: 40px;
+  left: 300px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.back-home-icon img{
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(190,210,226);
+  padding: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.back-home-icon img:hover{
+  transform: translateY(-5px);
+}
+
+.back-home-icon a::after {
+  content: "Back to Product Management";
+  position: absolute;
+  top: 10px;
+  left: 70px;
+  background-color: #121212;
+  color: #ffffff;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  width: auto;
+  white-space: nowrap;
+  text-align: center;
+  display: none;
+}
+
+.back-home-icon:hover a::after {
+  display: block;
+}
+
+/*按鈕區域*/
+.button-group{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+/*加入商品按鈕樣式*/
+ .btn{
+  background-color: rgba(31,67,155);
+  color: white;
+  padding: 15px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-top: 10px;
+}
+
+.btn:hover{
+  background-color: rgb(60, 92, 173);
+}

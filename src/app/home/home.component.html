@@ -1,0 +1,131 @@
+<div class="home-container">
+  <div class="hero-section">
+    <h1>WELCOME TO BEST KEY SERVICES</h1>
+  </div>
+
+  <div class="features-section">
+    <!-- 第一個卡片：輔助狀態 -->
+    <div class="feature-item">
+      <h3>輔助狀態</h3>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalStatus">
+        CHEAT STATE
+      </button>
+    </div>
+
+    <!-- 第二個卡片：最新消息 -->
+    <div class="feature-item">
+      <h3>最新消息</h3>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalNews">
+        READ MORE
+      </button>
+    </div>
+
+<!-- 第三個卡片：選購商品 -->
+<div class="feature-item">
+  <h3>選購商品</h3>
+  <button *ngIf="isLoggedIn; else notLoggedInTemplate" class="btn btn-primary" (click)="goToShop()">
+    SHOP NOW
+  </button>
+
+  <!-- 未登入時顯示提示框 -->
+  <ng-template #notLoggedInTemplate>
+    <button class="btn btn-primary" (click)="showLoginAlert()">
+      SHOP NOW
+    </button>
+  </ng-template>
+</div>
+  
+
+    <!-- 第四個卡片：聯絡我們 -->
+    <div class="feature-item">
+      <h3>聯絡我們</h3>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalContact">
+        CONTACT
+      </button>
+    </div>
+  </div>
+  
+     <!-- 懸浮圖示與按鈕 -->
+     <div class="icon-container" (mouseenter)="isHovered = true" (mouseleave)="isHovered = false">
+      <img src="assets/photo/VIP.png" alt="Admin Icon" class="admin-icon">
+      <div class="menu" [class.show]="isHovered">
+        <!-- 未登入時顯示 LOGIN 和 REGISTER -->
+        <ng-container *ngIf="!isLoggedIn; else loggedInTemplate">
+          <a *ngIf="!isLoggedIn" href="/login">LOGIN</a>
+          <a *ngIf="!isLoggedIn" href="/register">REGISTER</a>
+        </ng-container>
+
+        <!-- 已登入時顯示 LOGOUT -->
+        <ng-template #loggedInTemplate>
+          <a *ngIf="isLoggedIn" (click)="logout()" [routerLink]="['/login']">LOGOUT</a>
+        </ng-template>
+      </div>
+    </div>
+  
+  
+  <footer>
+    <p>© 2024 KeyService. All rights reserved.</p>
+  </footer>
+</div>
+
+<!-- 第一個模態框：輔助狀態 -->
+<div class="modal fade" id="modalStatus" tabindex="-1" role="dialog" aria-labelledby="modalStatusLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalStatusLabel">輔助狀態</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>🔴-V<br>🟢-B</p> <!-- 使用 <br> 來手動換行 -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 第二個模態框：最新消息 -->
+<div class="modal fade" id="modalNews" tabindex="-1" role="dialog" aria-labelledby="modalNewsLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalNewsLabel">最新消息</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        這裡是最新消息的詳細內容。
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 第四個模態框：聯絡我們 -->
+<div class="modal fade" id="modalContact" tabindex="-1" role="dialog" aria-labelledby="modalContactLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalContactLabel">聯絡我們</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h2 style="margin-left: 103px;">LINE ID：&#64;uiq1112i</h2>
+        <img src="https://qr-official.line.me/gs/M_uiq1112i_BW.png?oat_content=qr" style="margin-left: 100px; margin-top: 20px; height: 300px; width: 300px;">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+      </div>
+    </div>
+  </div>
+</div>
+

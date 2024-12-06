@@ -1,0 +1,147 @@
+<!-- 返回按鈕區域 -->
+<div class="back-home-icon">
+  <a href="/admin/admin-manage">
+    <img src="assets/photo/angle-left.png" alt="返回管理頁面">
+  </a>
+</div>
+
+<!-- 表單區域 -->
+<div class="container">
+  <h2 class="form-title">ADD ADMIN</h2>
+
+  <form #adminForm="ngForm" (ngSubmit)="submitAdmin(adminForm)">
+    <!-- 管理員名稱 -->
+    <div class="form-group">
+      <label for="username">管理員名稱：</label>
+      <input 
+        id="username" 
+        type="text" 
+        class="form-control" 
+        placeholder="輸入管理員名稱..." 
+        [(ngModel)]="admin.username" 
+        name="username" 
+        required>
+      <div *ngIf="adminForm.submitted && adminForm.controls['username']?.errors?.['required']" class="error">
+      </div>
+    </div>
+
+    <!-- 管理員密碼 -->
+    <div class="form-group">
+      <label for="password">管理員密碼：</label>
+      <input 
+        id="password" 
+        type="password" 
+        class="form-control" 
+        placeholder="輸入密碼..." 
+        [(ngModel)]="admin.password" 
+        name="password" 
+        required>
+      <div *ngIf="adminForm.submitted && adminForm.controls['password']?.errors?.['required']" class="error">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <!-- 所屬人員（唯讀） -->
+      <div class="col">
+        <label for="creator">所屬人員：</label>
+        <input 
+          id="creator" 
+          type="text" 
+          class="form-control form-control-sm" 
+          [(ngModel)]="admin.creator" 
+          name="creator" 
+          readonly> <!-- 設置為唯讀 -->
+      </div>
+    
+      <!-- 管理員權限 -->
+      <div class="col">
+        <label for="role">管理員權限：</label>
+        <select 
+          id="role" 
+          class="form-control1" 
+          [(ngModel)]="admin.role" 
+          name="role" 
+          required>
+          <option value="0">工程師</option>
+          <option value="1">商家</option>
+          <option value="2">代理商</option>
+        </select>
+      </div>
+    </div>
+    
+    
+
+    <!-- 儲值金額 -->
+    <div class="form-group row">
+      <div class="col">
+      <label for="coins">儲值金額：</label>
+      <input 
+        id="coins" 
+        type="number" 
+        class="form-control" 
+        [(ngModel)]="admin.coins" 
+        name="coins" 
+        min="0" 
+        (input)="onCoinsInput($event)">
+    </div>
+
+    <!-- 提卡方式 -->
+    <div class="col">
+      <label for="sell">提卡方式：</label>
+      <select 
+        id="sell" 
+        class="form-control1" 
+        [(ngModel)]="admin.sell" 
+        name="sell">
+        <option value="0">直接提卡</option>
+        <option value="1">扣款提卡</option>
+      </select>
+    </div>
+  </div>
+
+    <div class="form-group row">
+      <!-- 天卡售價 -->
+      <div class="col">
+        <label for="days">天卡售價：</label>
+        <input 
+          id="days" 
+          type="number" 
+          class="form-control form-control-sm"
+          [(ngModel)]="admin.days" 
+          name="days" 
+          min="0" 
+          (input)="onDaysInput($event)">
+      </div>
+    
+      <!-- 週卡售價 -->
+      <div class="col">
+        <label for="weeks">週卡售價：</label>
+        <input 
+          id="weeks" 
+          type="number" 
+          class="form-control form-control-sm" 
+          [(ngModel)]="admin.weeks" 
+          name="weeks" 
+          min="0" 
+          (input)="onWeeksInput($event)">
+      </div>
+    
+      <!-- 月卡售價 -->
+      <div class="col">
+        <label for="months">月卡售價：</label>
+        <input 
+          id="months" 
+          type="number" 
+          class="form-control form-control-sm"
+          [(ngModel)]="admin.months" 
+          name="months" 
+          min="0" 
+          (input)="onMonthsInput($event)">
+      </div>
+    </div>
+    
+
+    <!-- 按鈕區 -->
+    <button class="btn" type="submit">加入管理員</button>
+  </form>
+</div>

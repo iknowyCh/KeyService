@@ -1,0 +1,104 @@
+<!-- 返回按鈕區域 -->
+<div class="back-home-icon">
+  <a href="/admin/user-manage">
+    <img src="assets/photo/angle-left.png" alt="返回會員管理">
+  </a>
+</div>
+
+<!-- 表單區域 -->
+<div class="container">
+  <h2 class="form-title">EDIT USER</h2>
+
+  <form #editForm="ngForm" (ngSubmit)="submitEditUser(editForm)">
+    <!-- 使用者名稱輸入框 -->
+    <div class="form-group">
+      <label for="username">使用者名稱：</label>
+      <input 
+        id="username" 
+        type="text" 
+        class="form-control" 
+        [(ngModel)]="user.username" 
+        name="username" 
+        readonly 
+      />
+    </div>
+
+    <!-- 密碼輸入框 -->
+    <label for="password">密碼：</label>
+    <div class="form-control">
+      <input 
+        id="password" 
+        type="password" 
+        class="form-control" 
+        [(ngModel)]="user.password" 
+        name="password" 
+        required 
+      />
+    </div>
+
+    <!--已鎖定/未鎖定-->
+    <div class="form-group">
+    <label for="locked">狀態：</label>
+    <select class="form-control1" id="locked" [(ngModel)]="user.locked" name="locked">
+      <option [value]="0">未鎖定</option>
+      <option [value]="1">已鎖定</option>
+    </select>
+  </div>
+
+    <!-- 方案選擇 -->
+    <div class="form-group">
+      <label for="plan">方案選擇：</label>
+      <select
+        id="plan"
+        class="form-control1"
+        [(ngModel)]="user.plan"
+        name="plan"
+        required
+        (change)="onPlanChange()"
+      >
+        <option [ngValue]="1">次數用戶</option>
+        <option [ngValue]="2">時效用戶</option>
+      </select>
+    </div>
+
+    <!-- 次數輸入框 (當 plan = 1 時顯示) -->
+    <div class="form-group" *ngIf="user.plan === 1">
+      <label for="times">給予的次數：</label>
+      <input
+        id="times"
+        type="number"
+        class="form-control"
+        [(ngModel)]="user.times"
+        name="times"
+        min="1"
+        (input)="onTimesInput($event)"  
+        required
+      />
+      <div *ngIf="!isValidTimes()" class="error-text" style="color: red;">
+        請輸入有效的非負整數
+      </div>
+    </div>
+
+    <!-- 時效輸入框 (當 plan = 2 時顯示) -->
+    <div class="form-group" *ngIf="user.plan === 2">
+      <label for="date">給予的時效 (天)：</label>
+      <input
+        id="date"
+        type="number"
+        class="form-control"
+        [(ngModel)]="user.date"
+        name="date"
+        min="1"
+        (input)="onDateInput($event)"  
+        pattern="^[0-9]*$" 
+        required
+      />
+      <div *ngIf="!isValidTimes()" class="error-text" style="color: red;">
+        請輸入有效的非負整數
+      </div>
+    </div>
+
+    <!-- 表單提交按鈕 -->
+    <button class="btn" type="submit">更新</button>
+  </form>
+</div>
